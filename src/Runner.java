@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Runner {
@@ -38,43 +39,58 @@ public class Runner {
                 System.out.println("Your choice: ");
                 String direction = s.nextLine();
                 int directions = Integer.parseInt(direction);
-                System.out.println(action.actions(1));
+                String x = (action.actions(1));
+                if(x.equals("You've slipped and caused the opposing team to score!\nGame Over!"))
+                {
+                    goalScored = true;
+                    System.out.println("The enemy team took the ball away and you've lost!\nGame over!");
+                }
+                else
+                {
+                    System.out.println((start.updateField((start.move(directions)))));
 
-
-
-
-
-
-                //update the program in that direction
-
-
+                }
             }
-            //else if(actionChoice == 2);
+            else if(actionChoice == 2)
             {
-                //System.out.println("hi");
+                System.out.println(action.canGoWhere());
+                System.out.println("Your choice: ");
+                String direction = s.nextLine();
+                int directions = Integer.parseInt(direction);
+                String x = (action.actions(2));
+                if(x.equals("You've slipped and caused the opposing team to score!\nGame Over!"))
+                {
+                    goalScored = true;
+                    System.out.println("The enemy team took the ball away and you've lost!\nGame over!");
+                }
+                else
+                {
+                    System.out.println((start.updateField((start.move(directions)))));
+
+                }
             }
-            //else
+
+            else
             {
-
+                System.out.println("You've chosen to shoot!");
+                System.out.println("Currently " + start.distanceToGoal() + " away from the goal!");
+                String x = (action.actions(3));
+                if (x.equals("You've scored, great job!"))
+                {
+                    System.out.println("GOAL!!!\nYou win");
+                    goalScored = true;
+                }
+                else
+                {
+                    System.out.println("You've missed! Shucks!");
+                }
             }
 
-            System.out.println("Select your first action! \n1.Run\n2.Dribble\n3.Shoot");
+
+            System.out.println("1.Run\n2.Dribble\n3.Shoot");
             choice = s.nextLine();
-
             actionChoice = Integer.parseInt(choice);
-
-
-
-
-
-
-
-
-
-
         }
-
-
 
     }
 }

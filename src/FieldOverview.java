@@ -31,6 +31,28 @@ public class FieldOverview {
         return printedField;
     }
 
+    public String updateField(String[][] fields)
+    {
+        String printedField = "";
+        for(int i = 0; i < field.length; i++)
+        {
+            printedField += "\n";
+            for(int j = 0; j < field.length; j++)
+            {
+                printedField += field[i][j];
+            }
+        }
+        return printedField;
+    }
+
+    public String[][] updatedField()
+    {
+
+
+
+
+        return field;
+    }
 
     int rows = 0;
     int columns = 0;
@@ -84,79 +106,38 @@ public class FieldOverview {
         return columns;
     }
 
-    public String[][] goRight()
+    public String[][] move(int direction)
     {
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
                 if (Objects.equals(field[i][j], " ⚽ ")) {
                     rows = i;
                     columns = j;
-                    field[i+1][j]  = " ⚽ ";
-                    field[i][j] = " 🟩 ";
+                    if(direction == 1)
+                    {
+                        field[i+1][j]  = " ⚽ ";
+                        field[i][j] = " 🟩 ";
+                    }
+                    else if(direction == 2)
+                    {
+                        field[i][j-1]  = " ⚽ ";
+                        field[i][j] = " 🟩 ";
+                    }
+                    else if(direction == 3)
+                    {
+                        field[i-1][j]  = " ⚽ ";
+                        field[i][j] = " 🟩 ";
+                    }
+                    else if(direction == 4)
+                    {
+                        field[i][j+1]  = " ⚽ ";
+                        field[i][j] = " 🟩 ";
+                    }
                 }
             }
         }
-
         return field;
     }
-    public String[][] goLeft()
-    {
-        for (int i = 0; i < field.length; i++) {
-            for (int j = 0; j < field[i].length; j++) {
-                if (Objects.equals(field[i][j], " ⚽ ")) {
-                    rows = i;
-                    columns = j;
-                    field[i-1][j]  = " ⚽ ";
-                    field[i][j] = " 🟩 ";
-                }
-            }
-        }
-
-        return field;
-    }
-    public String[][] goUp()
-    {
-        for (int i = 0; i < field.length; i++) {
-            for (int j = 0; j < field[i].length; j++) {
-                if (Objects.equals(field[i][j], " ⚽ ")) {
-                    rows = i;
-                    columns = j;
-                    field[i][j+1]  = " ⚽ ";
-                    field[i][j] = " 🟩 ";
-                }
-            }
-        }
-
-        return field;
-    }
-    public String[][] goDown()
-    {
-        for (int i = 0; i < field.length; i++) {
-            for (int j = 0; j < field[i].length; j++) {
-                if (Objects.equals(field[i][j], " ⚽ ")) {
-                    rows = i;
-                    columns = j;
-                    field[i][j-1]  = " ⚽ ";
-                    field[i][j] = " 🟩 ";
-                }
-            }
-        }
-
-        return field;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
