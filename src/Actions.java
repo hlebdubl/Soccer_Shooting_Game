@@ -58,12 +58,14 @@ public class Actions {
         else if(action == 3)
         {
             extent *= 10;
-            if(extent > distance)
+            if(extent > distance || distance <= 15)
             {
+                result += "Currently " + distance + "ft away from goal!\n";
                 result += "You've scored, great job!";
             }
             else
             {
+                result += "Currently " + distance + "ft away from goal!\n";
                 result += "You've missed!";
             }
         }

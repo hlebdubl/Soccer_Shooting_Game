@@ -77,16 +77,16 @@ public class Runner {
             else
             {
                 System.out.println("You've chosen to shoot!");
-                System.out.println("Currently " + start.distanceToGoal() + " away from the goal!");
                 String x = (action.actions(3));
                 if (x.equals("You've scored, great job!"))
                 {
-                    System.out.println("GOAL!!!\nYou win");
+                    System.out.println(x);
                     goalScored = true;
                 }
                 else
                 {
-                    System.out.println("You've missed! Shucks!");
+                    System.out.print(x);
+                    System.out.println((start.updateField((start.move(5)))));
                     System.out.println("1.Run\n2.Dribble\n3.Shoot");
                     choice = s.nextLine();
                     actionChoice = Integer.parseInt(choice);

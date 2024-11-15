@@ -5,7 +5,7 @@ import java.util.Objects;
  */
 public class FieldOverview {
 
-    private String[][] field =
+    String[][] field =
             {{" ⬛ ", " ⬛ ", " ⬛ ", " \uD83E\uDD45 ", " ⬛ ", " ⬛ ", "⬛"},
                     {" ⬛ ", " 🟩 ", " 🟩 ", " 🟩 ", " 🟩 ", " 🟩 ", "⬛"},
                     {" ⬛ ", " 🟩 ", " 🟩 ", " 🟩 ", " 🟩 ", " 🟩 ", "⬛"},
@@ -204,6 +204,10 @@ public class FieldOverview {
                     {
                         field[i+1][j]  = " ⚽ ";
                         field[i][j] = " 🟩 ";
+                    }
+                    else if(direction == 5)
+                    {
+                        return field;
                     }
                 }
             }
