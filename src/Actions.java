@@ -1,10 +1,20 @@
-import java.util.Objects;
+/**
+ * The Actions class, represents the actions a player can take
+ */
 
 public class Actions {
 
     FieldOverview action = new FieldOverview();
     int distance = action.distanceToGoal();
 
+    /**
+     * actions is a method of the Actions class, it has a randomized number, extent based on which the event
+     * is determined for the player based on the action they have chosen
+     * it also has a shoot option which would be determined on their distance to goal and the value of extent
+     * @param action associates an action with a numerical value that the user inputs to determine
+     * what type of events to give to the user
+     * @return what the event that the user got as a String named result
+     */
     public String actions(int action)
     {
         String result = "";
@@ -60,24 +70,44 @@ public class Actions {
         return result;
     }
 
-
+    /**
+    * moveRight is a method of Actions class that depends on the CalculateColumns method from FieldOverview
+    * determines if the player would be able to move to the right depending on their position
+    */
     public boolean moveRight()
     {
         return action.calculateColumns() != 5;
     }
+    /**
+     * moveLeft is a method of Actions class that depends on the CalculateColumns method from FieldOverview
+     * determines if the player would be able to move to the left depending on their position
+     */
     public boolean moveLeft()
     {
        return action.calculateColumns() != 1;
     }
+    /**
+     * moveUp is a method of Actions class that depends on the CalculateRow method from FieldOverview
+     * determines if the player would be able to move to the up depending on their position
+     */
     public boolean moveUp()
     {
         return action.calculateRow() != 1;
     }
+    /**
+     * moveDown is a method of Actions class that depends on the CalculateRows method from FieldOverview
+     * determines if the player would be able to move to the down depending on their position
+     */
     public boolean moveDown()
     {
         return action.calculateRow() !=5;
     }
 
+    /**
+     * canGoWhere is a method of the actions class, it takes in account the move[Diection] methods from above to
+     * get a String of which direction a player can go in, adding values depending on if the result is true or false
+     * @return a String with all the available direction and numbers associated with them on seperate rows
+     */
     public String canGoWhere()
     {
         String option = "";

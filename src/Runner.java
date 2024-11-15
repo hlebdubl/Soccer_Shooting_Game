@@ -48,7 +48,9 @@ public class Runner {
                 else
                 {
                     System.out.println((start.updateField((start.move(directions)))));
-
+                    System.out.println("1.Run\n2.Dribble\n3.Shoot");
+                    choice = s.nextLine();
+                    actionChoice = Integer.parseInt(choice);
                 }
             }
             else if(actionChoice == 2)
@@ -66,7 +68,9 @@ public class Runner {
                 else
                 {
                     System.out.println((start.updateField((start.move(directions)))));
-
+                    System.out.println("1.Run\n2.Dribble\n3.Shoot");
+                    choice = s.nextLine();
+                    actionChoice = Integer.parseInt(choice);
                 }
             }
 
@@ -83,13 +87,14 @@ public class Runner {
                 else
                 {
                     System.out.println("You've missed! Shucks!");
+                    System.out.println("1.Run\n2.Dribble\n3.Shoot");
+                    choice = s.nextLine();
+                    actionChoice = Integer.parseInt(choice);
                 }
             }
 
 
-            System.out.println("1.Run\n2.Dribble\n3.Shoot");
-            choice = s.nextLine();
-            actionChoice = Integer.parseInt(choice);
+
         }
 
     }
