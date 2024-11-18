@@ -42,6 +42,22 @@ public class FieldOverview {
         return printedField;
     }
 
+
+    public String printField(String[][] fields)
+    {
+        String printedField = "";
+        for(int i = 0; i < fields.length; i++)
+        {
+            printedField += "\n";
+            for(int j = 0; j < fields.length; j++)
+            {
+                printedField += fields[i][j];
+            }
+        }
+        return printedField;
+    }
+
+
     /**
      * updateField method for the FieldOverview class. This will update the image of the field depending on the
      * actions of the user and print out a new image where the player will be in a different location
@@ -62,14 +78,6 @@ public class FieldOverview {
         return printedField;
     }
 
-   /* public String[][] updatedField()
-    {
-
-
-
-
-        return field;
-    }*/
 /**
  * Initialization of the int variables of rows, columns, and distance for future use in the methods
  */
@@ -82,6 +90,7 @@ public class FieldOverview {
      * and calculates how far the player would be from the goal
      * @return an int value of how far in blocks the player is multiplied by 10
      */
+
     public int distanceToGoal()
     {
         for (int i = 0; i < field.length; i++)
@@ -99,9 +108,26 @@ public class FieldOverview {
         return distance * 10;
     }
 
+    public int distanceToGoal(String[][] fields)
+    {
+        for (int i = 0; i < fields.length; i++)
+        {
+            for (int j = 0; j < fields[i].length; j++)
+            {
+                if (Objects.equals(fields[i][j], " ⚽ "))
+                {
+                    rows = i;
+                    columns = j;
+                }
+            }
+        }
+        distance = (int)(Math.sqrt(Math.pow((rows),2) - (Math.pow(columns,2))));
+        return distance * 10;
+    }
 
 
-    public int calculateRow(String[][][] fields)
+
+    public int calculateRow(String[][] fields)
     {
         for (int i = 0; i < fields.length; i++)
         {
@@ -214,7 +240,4 @@ public class FieldOverview {
         }
         return field;
     }
-
-
-
 }

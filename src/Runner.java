@@ -4,6 +4,17 @@ import java.util.Scanner;
 public class Runner {
     public static void main(String[] args) {
 
+
+        String[][] fields =
+                {{" ⬛ ", " ⬛ ", " ⬛ ", " \uD83E\uDD45 ", " ⬛ ", " ⬛ ", "⬛"},
+                        {" ⬛ ", " 🟩 ", " 🟩 ", " 🟩 ", " 🟩 ", " 🟩 ", "⬛"},
+                        {" ⬛ ", " 🟩 ", " 🟩 ", " 🟩 ", " 🟩 ", " 🟩 ", "⬛"},
+                        {" ⬛ ", " 🟩 ", " 🟩 ", " 🟩 ", " 🟩 ", " 🟩 ", "⬛"},
+                        {" ⬛ ", " 🟩 ", " 🟩 ", " 🟩 ", " 🟩 ", " 🟩 ", "⬛"},
+                        {" ⬛ ", " 🟩 ", " 🟩 ", " ⚽ ", " 🟩 ", " 🟩 ", "⬛"},
+                        {" ⬛ ", " ⬛ ", " ⬛ ", " \uD83E\uDD45 ", " ⬛ ", " ⬛ ", "⬛"}};
+
+
         Scanner s = new Scanner(System.in);
         boolean goalScored = false;
         FieldOverview start = new FieldOverview();
@@ -28,7 +39,7 @@ public class Runner {
 
         System.out.println("Select your first action! \n1.Run\n2.Dribble\n3.Shoot");
         String choice = s.nextLine();
-
+        int dist = start.distanceToGoal(fields);
         int actionChoice = Integer.parseInt(choice);
 
         while(!goalScored)
@@ -39,7 +50,7 @@ public class Runner {
                 System.out.println("Your choice: ");
                 String direction = s.nextLine();
                 int directions = Integer.parseInt(direction);
-                String x = (action.actions(1));
+                String x = (action.actions(1, dist));
                 if(x.equals("You've slipped and caused the opposing team to score!\nGame Over!"))
                 {
                     goalScored = true;
@@ -47,7 +58,11 @@ public class Runner {
                 }
                 else
                 {
-                    System.out.println((start.updateField((start.move(directions)))));
+                    fields = ((start.move(directions)));
+                    System.out.println(start.printField(fields));
+                    int colum  = start.calculateColumns(fields);
+                    int row = start.calculateRow(fields);
+                    dist = start.distanceToGoal(fields);
                     System.out.println("1.Run\n2.Dribble\n3.Shoot");
                     choice = s.nextLine();
                     actionChoice = Integer.parseInt(choice);
@@ -59,7 +74,7 @@ public class Runner {
                 System.out.println("Your choice: ");
                 String direction = s.nextLine();
                 int directions = Integer.parseInt(direction);
-                String x = (action.actions(2));
+                String x = (action.actions(2, dist));
                 if(x.equals("You've slipped and caused the opposing team to score!\nGame Over!"))
                 {
                     goalScored = true;
@@ -67,7 +82,11 @@ public class Runner {
                 }
                 else
                 {
-                    System.out.println((start.updateField((start.move(directions)))));
+                    fields = ((start.move(directions)));
+                    System.out.println(start.printField(fields));
+                    int colum  = start.calculateColumns(fields);
+                    int row = start.calculateRow(fields);
+                    dist = start.distanceToGoal(fields);
                     System.out.println("1.Run\n2.Dribble\n3.Shoot");
                     choice = s.nextLine();
                     actionChoice = Integer.parseInt(choice);
@@ -77,7 +96,8 @@ public class Runner {
             else
             {
                 System.out.println("You've chosen to shoot!");
-                String x = (action.actions(3));
+
+                String x = (action.actions(3, dist));
                 if (x.equals("You've scored, great job!"))
                 {
                     System.out.println(x);

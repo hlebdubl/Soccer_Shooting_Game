@@ -5,7 +5,6 @@
 public class Actions {
 
     FieldOverview action = new FieldOverview();
-    int distance = action.distanceToGoal();
 
     /**
      * actions is a method of the Actions class, it has a randomized number, extent based on which the event
@@ -15,7 +14,7 @@ public class Actions {
      * what type of events to give to the user
      * @return what the event that the user got as a String named result
      */
-    public String actions(int action)
+    public String actions(int action, int dis)
     {
         String result = "";
         int extent = ((int)(Math.random() * 3) +1);
@@ -41,7 +40,7 @@ public class Actions {
         {
             if( extent == 1)
             {
-                result += "A defender has come in front, go ground gained!";
+                result += "A defender has come in front, no ground gained!";
                 return result;
             }
             else if( extent == 2)
@@ -58,14 +57,14 @@ public class Actions {
         else if(action == 3)
         {
             extent *= 10;
-            if(extent > distance || distance <= 15)
+            if(extent > dis || dis <= 15)
             {
-                result += "Currently " + distance + "ft away from goal!\n";
+                result += "Currently " + dis + "ft away from goal!\n";
                 result += "You've scored, great job!";
             }
             else
             {
-                result += "Currently " + distance + "ft away from goal!\n";
+                result += "Currently " + dis + "ft away from goal!\n";
                 result += "You've missed!";
             }
         }
