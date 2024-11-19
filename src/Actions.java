@@ -56,8 +56,8 @@ public class Actions {
         }
         else if(action == 3)
         {
-            extent *= 10;
-            if(extent > dis || dis <= 15)
+            extent *= 15;
+            if(extent > dis || dis < 40)
             {
                 result += "Currently " + dis + "ft away from goal!\n";
                 result += "You've scored, great job!";
@@ -72,62 +72,73 @@ public class Actions {
     }
 
     /**
-    * moveRight is a method of Actions class that depends on the CalculateColumns method from FieldOverview
-    * determines if the player would be able to move to the right depending on their position
-    */
-    public boolean moveRight()
+     * moveRight is a method of Actions class that would give you true or false
+     * depending on the location of the player on the field
+     * @param columns sees on which column of the field the ball emoji is
+     * @return true if it's anything other than a 5
+     */
+    public boolean moveRight(int columns)
     {
-        return action.calculateColumns() != 5;
+        return columns != 5;
     }
     /**
-     * moveLeft is a method of Actions class that depends on the CalculateColumns method from FieldOverview
-     * determines if the player would be able to move to the left depending on their position
+     * moveLeft is a method of Actions class that would give you true or false
+     * depending on the location of the player on the field
+     * @param columns sees on which column of the field the ball emoji is
+     * @return true if it's anything other than a 1
      */
-    public boolean moveLeft()
+    public boolean moveLeft(int columns)
     {
-       return action.calculateColumns() != 1;
+        return columns != 1;
     }
     /**
-     * moveUp is a method of Actions class that depends on the CalculateRow method from FieldOverview
-     * determines if the player would be able to move to the up depending on their position
+     * moveUp is a method of Actions class that would give you true or false
+     * depending on the location of the player on the field
+     * @param row sees on which row of the field the ball emoji is
+     * @return true if it's anything other than a 1
      */
-    public boolean moveUp()
+    public boolean moveUp(int row)
     {
-        return action.calculateRow() != 1;
+        return row != 1;
     }
     /**
-     * moveDown is a method of Actions class that depends on the CalculateRows method from FieldOverview
-     * determines if the player would be able to move to the down depending on their position
+     * moveDown is a method of Actions class that would give you true or false
+     * depending on the location of the player on the field
+     * @param row sees on which row of the field the ball emoji is
+     * @return true if it's anything other than a 5
      */
-    public boolean moveDown()
+    public boolean moveDown(int row)
     {
-        return action.calculateRow() !=5;
+        return row !=5;
     }
 
     /**
-     * canGoWhere is a method of the actions class, it takes in account the move[Diection] methods from above to
-     * get a String of which direction a player can go in, adding values depending on if the result is true or false
-     * @return a String with all the available direction and numbers associated with them on seperate rows
+     * canGoWhere is a method of the Actions class that would give out a string based on
+     * where the move[direction] methods say the player could move
+     * @param fields the updated field on which the player is to determine where
+     *               they can go
+     * @return a String with all the direction where the player can go and the numbers associated
+     * with them
      */
-    public String canGoWhere()
+    public String canGoWhere(String[][] fields)
     {
-        String option = "";
-        if(moveRight())
-        {
-            option += "Can go right(1)!\n";
-        }
-        if(moveLeft())
-        {
-            option += "Can go left(2)!\n";
-        }
-        if(moveUp())
-        {
-            option += "Can go up(3)!\n";
-        }
-        if(moveDown())
-        {
-            option += "Can go down(4)!\n";
-        }
-        return option;
+            String option = "";
+            if(moveRight(action.calculateColumns(fields)))
+            {
+                option += "Can go right(1)!\n";
+            }
+            if(moveLeft(action.calculateColumns(fields)))
+            {
+                option += "Can go left(2)!\n";
+            }
+            if(moveUp(action.calculateRow(fields)))
+            {
+                option += "Can go up(3)!\n";
+            }
+            if(moveDown(action.calculateRow(fields)))
+            {
+                option += "Can go down(4)!\n";
+            }
+            return option;
     }
 }

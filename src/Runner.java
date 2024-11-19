@@ -22,7 +22,7 @@ public class Runner {
 
         System.out.println("Welcome to 1v1_Soccer Game! \nHere is the field you'll be playing on!");
 
-        System.out.println(start.printField());
+        System.out.println(start.printField(fields));
 
         System.out.print("Any input + enter to continue: ");
         String yn = s.nextLine();
@@ -46,7 +46,7 @@ public class Runner {
         {
             if(actionChoice == 1)
             {
-                System.out.println(action.canGoWhere());
+                System.out.println(action.canGoWhere(fields));
                 System.out.println("Your choice: ");
                 String direction = s.nextLine();
                 int directions = Integer.parseInt(direction);
@@ -63,6 +63,7 @@ public class Runner {
                     int colum  = start.calculateColumns(fields);
                     int row = start.calculateRow(fields);
                     dist = start.distanceToGoal(fields);
+                    action.canGoWhere(fields);
                     System.out.println("1.Run\n2.Dribble\n3.Shoot");
                     choice = s.nextLine();
                     actionChoice = Integer.parseInt(choice);
@@ -70,7 +71,7 @@ public class Runner {
             }
             else if(actionChoice == 2)
             {
-                System.out.println(action.canGoWhere());
+                System.out.println(action.canGoWhere(fields));
                 System.out.println("Your choice: ");
                 String direction = s.nextLine();
                 int directions = Integer.parseInt(direction);
@@ -87,18 +88,20 @@ public class Runner {
                     int colum  = start.calculateColumns(fields);
                     int row = start.calculateRow(fields);
                     dist = start.distanceToGoal(fields);
+
+
+                    action.canGoWhere(fields);
                     System.out.println("1.Run\n2.Dribble\n3.Shoot");
                     choice = s.nextLine();
                     actionChoice = Integer.parseInt(choice);
                 }
             }
-
             else
             {
                 System.out.println("You've chosen to shoot!");
 
                 String x = (action.actions(3, dist));
-                if (x.equals("You've scored, great job!"))
+                if (x.contains("You've scored, great job!"))
                 {
                     System.out.println(x);
                     goalScored = true;
@@ -112,10 +115,6 @@ public class Runner {
                     actionChoice = Integer.parseInt(choice);
                 }
             }
-
-
-
         }
-
     }
 }
