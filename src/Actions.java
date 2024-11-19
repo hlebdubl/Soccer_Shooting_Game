@@ -111,7 +111,6 @@ public class Actions {
     {
         return row !=5;
     }
-
     /**
      * canGoWhere is a method of the Actions class that would give out a string based on
      * where the move[direction] methods say the player could move
