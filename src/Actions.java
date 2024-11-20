@@ -60,7 +60,7 @@ public class Actions {
             if(extent > dis || dis < 40)
             {
                 result += "Currently " + dis + "ft away from goal!\n";
-                result += "You've scored, great job!";
+                result += "\uD83C\uDF89You've scored, great job!\uD83C\uDF89";
             }
             else
             {
@@ -111,6 +111,7 @@ public class Actions {
     {
         return row !=5;
     }
+
     /**
      * canGoWhere is a method of the Actions class that would give out a string based on
      * where the move[direction] methods say the player could move
@@ -121,23 +122,23 @@ public class Actions {
      */
     public String canGoWhere(String[][] fields)
     {
-            String option = "";
-            if(moveRight(action.calculateColumns(fields)))
-            {
-                option += "Can go right(1)!\n";
-            }
-            if(moveLeft(action.calculateColumns(fields)))
-            {
-                option += "Can go left(2)!\n";
-            }
-            if(moveUp(action.calculateRow(fields)))
-            {
-                option += "Can go up(3)!\n";
-            }
-            if(moveDown(action.calculateRow(fields)))
-            {
-                option += "Can go down(4)!\n";
-            }
-            return option;
+        String option = "";
+        if(moveRight(action.calculateColumns(fields)))
+        {
+            option += "Can go right(1)!\n";
+        }
+        if(moveLeft(action.calculateColumns(fields)))
+        {
+            option += "Can go left(2)!\n";
+        }
+        if(moveUp(action.calculateRow(fields)))
+        {
+            option += "Can go up(3)!\n";
+        }
+        if(moveDown(action.calculateRow(fields)))
+        {
+            option += "Can go down(4)!\n";
+        }
+        return option;
     }
 }

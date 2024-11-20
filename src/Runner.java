@@ -101,7 +101,7 @@ public class Runner {
                 System.out.println("You've chosen to shoot!");
 
                 String x = (action.actions(3, dist));
-                if (x.contains("You've scored, great job!"))
+                if (x.contains("\uD83C\uDF89You've scored, great job!\uD83C\uDF89"))
                 {
                     System.out.println(x);
                     goalScored = true;

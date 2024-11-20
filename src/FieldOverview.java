@@ -24,9 +24,10 @@ public class FieldOverview {
     }
 
     /**
-     * method of the FieldOverview class, prints out the field given to it as String
-     * @param fields the array you wish to get printed out as a String
-     * @return the 2D array (fields) transformed into a String
+     * printField is a method of the FieldOverview class that prints out a 2D array
+     * as a field in a desired way
+     * @param fields a 2D array that would get printed out
+     * @return a String of the field in a desired format
      */
     public String printField(String[][] fields)
     {
@@ -61,18 +62,18 @@ public class FieldOverview {
         return printedField;
     }
 
-/**
- * Initialization of the int variables of rows, columns, and distance for future use in the methods
- */
+    /**
+     * Initialization of the int variables of rows, columns, and distance for future use in the methods
+     */
     int rows = 0;
     int columns = 0;
     int distance;
     /**
-     * distanceToGoal is a method of the FieldOverview class, it calculates how far the
-     * player is from the goal
-     * @param fields the array of the field
-     * @return the distance you are from the goal via the Manhattan method * 10
+     * distanceToGoal method of the FieldOverview class, it takes in the position of the player
+     * and calculates how far the player would be from the goal
+     * @return an int value of how far in blocks the player is multiplied by 10
      */
+
     public int distanceToGoal(String[][] fields)
     {
         for (int i = 0; i < fields.length; i++)
@@ -89,10 +90,12 @@ public class FieldOverview {
         distance = abs(rows) + abs(columns -3);
         return distance * 10;
     }
+
     /**
-     * calculateRow calculates the player's row on the field
-     * @param fields the 2D array of the field
-     * @return the numbered row the player is on
+     * calculateRow is a method of the FieldOverview class that would see on which
+     * row the player is currently located
+     * @param fields the 2D array of the game field where the player is located
+     * @return the numbered row where the player is
      */
     public int calculateRow(String[][] fields)
     {
@@ -109,12 +112,11 @@ public class FieldOverview {
         }
         return rows;
     }
-
     /**
-     * calculateColumns is a method of the FieldOverview class that calculates the
-     * player's column location
-     * @param fields the 2D array of the field
-     * @return the numbered column
+     * calculateColumns is a method of the FieldOverview class that would see on which
+     * column the player is currently located
+     * @param fields the 2D array of the game field where the player is located
+     * @return the numbered column where the player is
      */
     public int calculateColumns(String[][] fields)
     {
@@ -148,6 +150,7 @@ public class FieldOverview {
                     {
                         field[rows][columns+1] = " ⚽ ";
                         field[rows][columns] = " 🟩 ";
+                        return field;
                     }
                     else if(direction == 2)
                     {
@@ -163,6 +166,7 @@ public class FieldOverview {
                     {
                         field[rows+1][columns]  = " ⚽ ";
                         field[rows][columns] = " 🟩 ";
+                        return field;
                     }
                     else if(direction == 5)
                     {
