@@ -36,7 +36,6 @@ public class Runner {
         System.out.println("|     However, there could also be random events        |");
         System.out.println("|_______________________________________________________|");
 
-
         System.out.println("Select your first action! \n1.Run\n2.Dribble\n3.Shoot");
         String choice = s.nextLine();
         int dist = start.distanceToGoal(fields);
