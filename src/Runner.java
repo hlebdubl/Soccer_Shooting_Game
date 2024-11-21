@@ -32,8 +32,8 @@ public class Runner {
         System.out.println("---------------------------------------------------------");
         System.out.println("|You have to shoot the ball into the opposing side goal!|");
         System.out.println("|       You have 3 choices: shoot/dribble/move          |");
-        System.out.println("|     With every step, the shot chance increases        |");
-        System.out.println("|     However, there could also be random events        |");
+        System.out.println("|  The closer to the goal, the higher the shot chance   |");
+        System.out.println("|   There is always a chance the ball will get stolen   |");
         System.out.println("|_______________________________________________________|");
 
         System.out.println("Select your first action! \n1.Run\n2.Dribble\n3.Shoot");
