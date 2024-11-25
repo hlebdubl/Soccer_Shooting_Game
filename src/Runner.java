@@ -20,7 +20,7 @@ public class Runner {
         FieldOverview start = new FieldOverview();
         Actions action = new Actions();
 
-        System.out.println("Welcome to 1v1_Soccer Game! \nHere is the field you'll be playing on!");
+        System.out.println("Welcome to Soccer Shooting Game! \nHere is the field you'll be playing on!");
 
         System.out.println(start.printField(fields));
 

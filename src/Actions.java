@@ -21,15 +21,6 @@ public class Actions {
 
         if(action == 2)
         {
-            if( extent == 1) {
-                result += "You've been stopped, no ground gained!";
-                return result;
-            }
-            if( extent == 2)
-            {
-                result += "You've dribbled past and gained 1 square!";
-                return result;
-            }
             if( extent == 3)
             {
                 result += "You've slipped and caused the opposing team to score!\nGame Over!";
@@ -38,17 +29,7 @@ public class Actions {
         }
         else if(action == 1)
         {
-            if( extent == 1)
-            {
-                result += "A defender has come in front, no ground gained!";
-                return result;
-            }
-            else if( extent == 2)
-            {
-                result += "You've ran enough for 1 square!";
-                return result;
-            }
-            else
+            if(extent == 3)
             {
                 result += "You've slipped and caused the opposing team to score!\nGame Over!";
                 return result;
